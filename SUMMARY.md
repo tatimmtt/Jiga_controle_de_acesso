@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Developer Platform API](README.md)
+* [JIGA DE CONTROLE DE ACESSO](README.md)
 
 ## Reference
 
