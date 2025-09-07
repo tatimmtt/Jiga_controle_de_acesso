@@ -45,7 +45,7 @@ Identificar e implementar soluções eficazes para os desafios específicos enfr
 3. Desenvolver e implementar estratégias que melhorem os processos visados.
 4. Medir e avaliar o impacto das soluções implementadas nos resultados organizacionais.
 
-### Metodologia
+## Metodologia
 
 Para alcançar os objetivos especificados, será adotada uma metodologia iterativa e ágil, promovendo ciclos curtos de desenvolvimento e feedback contínuo. A abordagem permitirá ajustar estratégias rapidamente e garantir que as soluções atendam às necessidades práticas da equipe e da organização.
 
