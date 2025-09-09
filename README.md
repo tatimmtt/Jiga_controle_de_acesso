@@ -20,23 +20,28 @@ layout:
 
 ## Resumo
 
-Este projeto tem como objetivo geral otimizar os processos organizacionais através da identificação e implementação de soluções eficazes para desafios específicos enfrentados pela equipe. Entre os objetivos específicos, destacam-se a análise de dados para compreender dificuldades, a identificação de padrões estratégicos, o desenvolvimento de estratégias de melhoria e a avaliação dos impactos das soluções. O projeto também contempla o uso de ferramentas como o GitBook para documentação, maximizando a eficiência e clareza na apresentação das especificações de API.
+Este projeto tem como objetivo otimizar os processos de teste e desenvolvimento do software _Defense IA_, por meio da identificação e implementação de soluções para desafios específicos enfrentados pela equipe, especialmente no módulo de controle de acesso.
 
 ## Introdução
 
-### Definição do problema
+### Definição do Problema
 
-O projeto visa identificar soluções efetivas para desafios específicos enfrentados por nossa equipe ao lidar com \[descrever o problema principal]. Isso inclui a análise de dados, identificação de padrões e implementação de estratégias adequadas para otimizar \[aspecto relevante].
+O módulo de controle de acesso do _Defense IA_ integra-se a dispositivos físicos, como controladoras de acesso. Um dos principais desafios enfrentados pela equipe de desenvolvimento é a limitação de testes físicos, especialmente para colaboradores em regime remoto, que não conseguem realizar a leitura de cartões nos dispositivos para gerar eventos no sistema. Além disso, há a necessidade de realizar testes de carga, simulando acessos em massa — com volumes superiores a 1 milhão de registros — para avaliar a performance e a capacidade do banco de dados em armazenar e processar eventos de acesso. Este projeto concentra-se na resolução de dois problemas principais:
 
-### Motivação do projeto
+* Simulação de eventos de acesso por meio da ativação remota da passagem de cartões nos dispositivos,  através de uma interface web, permitindo a execução de testes mesmo em ambientes fora do laboratório, como no trabalho remoto.
+* Testes de performance voltados para a validação da escalabilidade e da robustez do banco de dados, por meio da simulação de grandes volumes de eventos, superiores a 1 milhão de registros, com o objetivo de avaliar a capacidade de armazenamento, processamento e resposta do sistema sob carga intensa.
 
-A motivação por trás deste projeto é \[explicar o que impulsiona o projeto, como a demanda do mercado, melhoria de processos internos, ou inovação tecnológica], com vista a melhorar significativamente \[especificar os elementos que a motivação pretende impactar]. Ao resolver essas questões, esperamos alcançar \[resultados ou benefícios esperados], o que beneficiará a organização e seus stakeholders.
+
+
+### Motivação do Projeto
+
+A motivação central é o desenvolvimento de uma JIGA de testes que possa ser integrada à esteira de desenvolvimento do _Defense IA_. Essa JIGA utilizará dispositivos eletrônicos como microcontroladores e motores de passo para simular fisicamente a passagem de cartões nos leitores, gerando eventos reais no sistema.O projeto representa uma aplicação prática de conhecimentos acadêmicos e técnicos, com potencial de impacto direto na eficiência dos testes e na qualidade do produto final. A integração entre hardware e software permitirá a automação de testes e a ampliação da cobertura de cenários, contribuindo para a evolução contínua da solução.
 
 ## Objetivos
 
 ### Objetivo Geral
 
-Identificar e implementar soluções eficazes para os desafios específicos enfrentados pela equipe, otimizando os processos relevantes para maximizar os benefícios organizacionais.
+Desenvolver uma JIGA de testes de controle de acesso.
 
 ### Objetivos específicos
 
