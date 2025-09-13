@@ -31,49 +31,67 @@ O módulo de controle de acesso do _Defense IA_ integra-se a dispositivos físic
 * Simulação de eventos de acesso por meio da ativação remota da passagem de cartões nos dispositivos,  através de uma interface web, permitindo a execução de testes mesmo em ambientes fora do laboratório, como no trabalho remoto.
 * Testes de performance voltados para a validação da escalabilidade e da robustez do banco de dados, por meio da simulação de grandes volumes de eventos, superiores a 1 milhão de registros, com o objetivo de avaliar a capacidade de armazenamento, processamento e resposta do sistema sob carga intensa.
 
-
-
 ### Motivação do Projeto
 
-A motivação central é o desenvolvimento de uma JIGA de testes que possa ser integrada à esteira de desenvolvimento do _Defense IA_. Essa JIGA utilizará dispositivos eletrônicos como microcontroladores e motores de passo para simular fisicamente a passagem de cartões nos leitores, gerando eventos reais no sistema.O projeto representa uma aplicação prática de conhecimentos acadêmicos e técnicos, com potencial de impacto direto na eficiência dos testes e na qualidade do produto final. A integração entre hardware e software permitirá a automação de testes e a ampliação da cobertura de cenários, contribuindo para a evolução contínua da solução.
+A motivação central é o desenvolvimento de uma JIGA de testes que possa ser integrada à esteira de desenvolvimento do _Defense IA_. Essa JIGA utilizará dispositivos eletrônicos como microcontroladores e motores de passo para simular fisicamente a passagem de cartões nos leitores, gerando eventos reais no sistema. O projeto representa uma aplicação prática de conhecimentos acadêmicos e técnicos, com potencial de impacto direto na eficiência dos testes e na qualidade do produto final. A integração entre hardware e software permitirá a automação de testes e a ampliação da cobertura de cenários, contribuindo para a evolução contínua da solução.
 
 ## Objetivos
 
 ### Objetivo Geral
 
-Desenvolver uma JIGA de testes de controle de acesso.
+Desenvolver uma JIGA de testes para o módulo de controle de acesso do software Defense IA, integrando conhecimentos de eletrônica e desenvolvimento de software, com o propósito de solucionar limitações nos testes físicos e de performance enfrentadas pela equipe.
 
 ### Objetivos específicos
 
-1. Analisar dados existentes para compreender as principais dificuldades.
-2. Identificar padrões e tendências que informem as decisões estratégicas.
-3. Desenvolver e implementar estratégias que melhorem os processos visados.
-4. Medir e avaliar o impacto das soluções implementadas nos resultados organizacionais.
+* Montar fisicamente a JIGA de testes.
+* Integrar sistema embarcado com motor de passo e cartão de acesso.
+* Desenvolver interface web para controle remoto.
+* Implementar controle de temperatura e acionamento de ventoinha.
 
 ## Metodologia
 
-Para alcançar os objetivos especificados, será adotada uma metodologia iterativa e ágil, promovendo ciclos curtos de desenvolvimento e feedback contínuo. A abordagem permitirá ajustar estratégias rapidamente e garantir que as soluções atendam às necessidades práticas da equipe e da organização.
+Este trabalho utiliza a metodologia de Pesquisa-Ação, por ser adequada à investigação de problemas reais com aplicação prática de soluções. A Pesquisa-Ação é caracterizada pela integração entre a produção de conhecimento e a intervenção no contexto estudado, permitindo que o pesquisador atue diretamente na realidade observada. O processo metodológico foi dividido em quatro etapas principais:&#x20;
 
-#### Etapas do processo
+(1) diagnóstico do problema, por meio de levantamento bibliográfico e observação prática;&#x20;
 
-1. **Descoberta e Planejamento**: Envolver todas as partes interessadas para prioritizar tarefas e definir metas claras.
-2. **Desenvolvimento e Implementação**: Prototipar e desenvolver em iterações, com avaliação regular do progresso.
-3. **Testes e Avaliações**: Verificar a eficiência das soluções por meio de testes rigorosos.
-4. **Otimização Contínua**: Ajustar as estratégias com base nos dados coletados e no feedback recebido.
+(2) planejamento da ação, com definição das estratégias e recursos necessários para o desenvolvimento do projeto físico;&#x20;
 
-Essa estrutura permitirá uma execução coordenada e eficiente, garantindo resultados alcançáveis e mensuráveis.
+(3) implementação, onde o conhecimento sintetizado foi aplicado na construção e execução do projeto; e&#x20;
+
+(4) avaliação e reflexão, com análise dos resultados obtidos e apresentação das conclusões aos professores.
 
 ## Arquitetura do projeto
 
-A arquitetura do projeto é composta por diversos componentes interligados que facilitam a operação e o desenvolvimento contínuo do sistema. A seguir, detalhamos os principais elementos:
+{% tabs %}
+{% tab title="ESP32" %}
+\[Cliente Web (PC/Celular)]\
+⇅ Wi-Fi\
+\[ESP32]\
+├── Servidor Web (HTTP ou WebSocket)\
+├── Controle do Motor de Passo (via GPIO)\
+└── Driver de Motor (ex: A4988, DRV8825)\
+↓\
+\[Motor de Passo]
+{% endtab %}
 
-1. **Frontend**: Desenvolvido com frameworks modernos, o frontend é responsável pela interface de usuário, garantindo uma experiência fluida e responsiva.
-2. **Backend**: Constituído por uma robusta API que gerencia lógica de negócios e toda integração com o banco de dados.
-3. **Banco de Dados**: Utiliza um sistema de gerenciamento de banco de dados relacional para armazenar e organizar dados de forma eficiente.
-4. **Infraestrutura de Deploy**: Automação através de pipelines que asseguram a integração contínua e o delivery das atualizações.
-
-Esses componentes são integrados de maneira a proporcionar uma solução escalável e de fácil manutenção.
+{% tab title="BeagleBone" %}
+\[Cliente Web (PC/Celular)]\
+⇅ Ethernet/Wi-Fi\
+\[BeagleBone]\
+├── Servidor Web (Apache/Nginx + Backend Python/C++)\
+├── Interface com GPIOs (via PRU ou libgpiod)\
+└── Driver de Motor (ex: TB6600, DM542)\
+↓\
+\[Motor de Passo]
+{% endtab %}
+{% endtabs %}
 
 ## Materiais e equipamentos utilizados
 
-A lista de materiais e equipamentos empregados no desenvolvimento e operação do sistema inclui servidores, dispositivos de rede, ferramentas de monitoramento e computadores para desenvolvimento. Esses recursos garantem a eficiência, segurança e escalabilidade da infraestrutura de tecnologia.
+
+
+## Desenvolvimento e implementação
+
+
+
+## Resultados e avaliação
