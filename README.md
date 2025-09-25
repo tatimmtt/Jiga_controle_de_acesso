@@ -109,17 +109,6 @@ BeagleBone GPIO\_Z ──┬─\[Resistor 1kΩ]─┬─> \[Gate do MOSFET]\
 &#x20;                                            │                               │\
 &#x20;                                         GND                         GND
 {% endtab %}
-
-{% tab title="ESP32" %}
-\[Cliente Web (PC/Celular)]\
-⇅ Wi-Fi\
-\[ESP32]\
-├── Servidor Web (HTTP ou WebSocket)\
-├── Controle do Motor de Passo (via GPIO)\
-└── Driver de Motor (ex: A4988, DRV8825)\
-↓\
-\[Motor de Passo]
-{% endtab %}
 {% endtabs %}
 
 ## Materiais e equipamentos utilizados
