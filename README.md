@@ -1,4 +1,7 @@
 ---
+description: >-
+  Desenvolvimento de um projeto para a disciplina de Projeto Integrador III do
+  curso de Engenharia Eletrônica do Instituto Federal de Santa Catarina
 icon: terminal
 layout:
   width: default
@@ -17,6 +20,8 @@ layout:
 ---
 
 # JIGA DE CONTROLE DE ACESSO
+
+<figure><img src=".gitbook/assets/marca-DAELN.png" alt=""><figcaption></figcaption></figure>
 
 ## Resumo
 
