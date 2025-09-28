@@ -25,9 +25,7 @@ layout:
 
 ## Resumo
 
-Este projeto tem como objetivo otimizar os processos de teste e desenvolvimento do software _Defense IA_, por da implementação de uma solução na área da eletrônica, utilizando equipamentos e integração com motor de passo, driver de motor e sistemas embarcados.
-
-
+Este projeto tem como objetivo otimizar os processos de teste e desenvolvimento do software _Defense IA_, por meio da implementação de uma solução na área da eletrônica, utilizando equipamentos e integração com motor de passo, driver de motor e sistemas embarcados.
 
 ## Introdução
 
