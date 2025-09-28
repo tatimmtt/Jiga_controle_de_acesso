@@ -4,9 +4,20 @@ description: Descrição das etapas de desenvolvimento do projeto
 
 # Desenvolvimento do projeto
 
-## Desenvolvimento e implementação
+## Controle do motor de passo
+
+Para realizar o controle do motor de passo, será necessário utilizar os seguintes componentes:
+
+* Um driver de motor compatível com o tipo de motor de passo escolhido;
+* Um motor de passo, responsável pela movimentação precisa;
+* A BeagleBone, que atuará como unidade de controle;
+* Os pinos GPIO da BeagleBone, que serão utilizados para enviar os sinais de comando ao driver.
+
+A BeagleBone será programada para gerar os pulsos e sinais de direção necessários ao funcionamento do motor, por meio dos pinos GPIO previamente definidos.
 
 ### Código para controle do motor de passo
+
+Abaixo está o código utilizado para controle do driver do motor:
 
 {% tabs %}
 {% tab title="C" %}
@@ -17,10 +28,10 @@ description: Descrição das etapas de desenvolvimento do projeto
 #include <string.h>
 
 // Define os números dos GPIOs usados para controlar o motor
-#define STEP1 60  // GPIO 60
-#define STEP2 61  // GPIO 61
-#define STEP3 62  // GPIO 62
-#define STEP4 63  // GPIO 63
+#define STEP1 30  // GPIO 60
+#define STEP2 31  // GPIO 61
+#define STEP3 48  // GPIO 62
+#define STEP4 51  // GPIO 63
 
 // Array com os GPIOs
 int gpios[] = {STEP1, STEP2, STEP3, STEP4};

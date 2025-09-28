@@ -26,10 +26,11 @@ A arquitetura proposta para o projeto utiliza um microcomputador embarcado Beagl
 
 Para este projeto, serão utilizados os seguintes pinos GPIO:
 
-* **3 pinos GPIO** dedicados ao driver de motor de passo
+* **4 pinos GPIO** dedicados ao driver de motor de passo
   * GPIO\_30
   * GPIO\_31
   * GPIO\_48
+  * GPIO\_51
 * **1 pino GPIO** destinado ao controle da ventoinha
   * GPIO\_60
 
