@@ -28,10 +28,10 @@ Abaixo está o código utilizado para controle do driver do motor:
 #include <string.h>
 
 // Define os números dos GPIOs usados para controlar o motor
-#define STEP1 30  // GPIO 60
-#define STEP2 31  // GPIO 61
-#define STEP3 48  // GPIO 62
-#define STEP4 51  // GPIO 63
+#define STEP1 30  // GPIO 30
+#define STEP2 31  // GPIO 31
+#define STEP3 48  // GPIO 48
+#define STEP4 51  // GPIO 51
 
 // Array com os GPIOs
 int gpios[] = {STEP1, STEP2, STEP3, STEP4};
