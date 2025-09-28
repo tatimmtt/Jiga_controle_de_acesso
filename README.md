@@ -62,69 +62,9 @@ Este trabalho utiliza a metodologia de Pesquisa-Ação, por ser adequada à inve
 
 (4) avaliação e reflexão, com análise dos resultados obtidos e apresentação das conclusões aos professores.
 
-## Arquitetura do projeto
+<p align="center"><a href="arquitetura-do-projeto.md" class="button secondary" data-icon="sitemap">Arquitetura do projeto</a></p>
 
-{% tabs %}
-{% tab title="BeagleBone" %}
-\[Cliente Web (PC/Celular)]\
-⇅ Ethernet/Wi-Fi\
-\[BeagleBone]\
-├── Servidor Web (Apache/Nginx + Backend Python/C++)\
-├── Interface com GPIOs (via PRU ou libgpiod)\
-├── Ventoinha\
-└── Driver de Motor (ex: DRV8824)\
-↓\
-\[Motor de Passo]
-
-
-
-**Esquema de ligação entre BeagleBone e driver de motor**
-
-| BeagleBone | DRV8824 |
-| ---------- | ------- |
-| GPIO1\_6   | STEP    |
-| GPIO1\_7   | DIR     |
-| GPIO1\_2   | ENABLE  |
-
-**Esquema de ligação entre BeagleBone e ventoinha**
-
-+12V (Fonte externa)\
-│\
-├────────────┐\
-│                                   │\
-\[Ventoinha] -  \[Diodo 1N4007]\
-│                                  │\
-│                               ┌┴┐\
-└────┬──────┘  └──┐\
-&#x20;              │                              │\
-\[Dreno do MOSFET]          │\
-&#x20;              │                              │\
-\[Fonte do MOSFET] ───┘\
-&#x20;              │\
-&#x20;            GND (comum com BeagleBone)
-
-
-
-BeagleBone GPIO\_Z ──┬─\[Resistor 1kΩ]─┬─> \[Gate do MOSFET]\
-&#x20;                                            │                               │\
-&#x20;                                         GND                         GND
-{% endtab %}
-{% endtabs %}
-
-## Materiais e equipamentos utilizados
-
-| Equipamento                          | Quantidade |
-| ------------------------------------ | ---------- |
-| BeagleBoard                          | 1          |
-| Resistor (1k ohms)                   | 1          |
-| Resistor (10k ohms)                  | 1          |
-| Transistor (IRLZ44N)                 | 1          |
-| Diodo (1N4007)                       | 1          |
-| Driver de motor (DR8825)             | 1          |
-| Motor de passo (NEMA 17)             | 1          |
-| Madeira MDF                          | 7          |
-| Controlador de acesso (SS 3532 MF W) | 2          |
-| Fonte (5V)                           | 1          |
+<p align="center"><a href="materiais-utilizados.md" class="button secondary" data-icon="microchip">  Materiais Utilizados  </a></p>
 
 ## Desenvolvimento e implementação
 
@@ -240,17 +180,3 @@ int main() {
 {% endtabs %}
 
 ## Resultados e avaliação
-
-
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
