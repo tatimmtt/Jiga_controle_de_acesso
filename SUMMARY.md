@@ -2,5 +2,6 @@
 
 * [JIGA DE CONTROLE DE ACESSO](README.md)
 * [Arquitetura do projeto](arquitetura-do-projeto.md)
-* [Materiais utilizados](materiais-utilizados.md)
+* [Materiais utilizados](materiais-utilizados/README.md)
+  * [Driver de motor (DRV 8825)](materiais-utilizados/driver-de-motor-drv-8825.md)
 * [Desenvolvimento do projeto](desenvolvimento-do-projeto.md)
