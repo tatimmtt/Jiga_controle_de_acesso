@@ -33,7 +33,14 @@ O driver de motor selecionado para o projeto é o DRV8825, que apresenta faixa d
 
 O driver de motor suporta até 32 microsteps, sendo a resolução configurável por meio dos pinos M0, M1 e M2. A definição do modo de operação deve ser realizada conforme as combinações apresentadas na tabela abaixo.
 
-<figure><img src="../.gitbook/assets/{C84F3C79-1C81-42FF-8F47-756364403988}.png" alt=""><figcaption></figcaption></figure>
+|  M0 |  M1 |  M2 | Modo de passo | Passos por volta (motor 1,8°) |
+| :-: | :-: | :-: | ------------- | ----------------------------- |
+|  L  |  L  |  L  | Full Step     | 200                           |
+|  H  |  L  |  L  | 1/2 Step      | 400                           |
+|  L  |  H  |  L  | 1/4 Step      | 800                           |
+|  H  |  H  |  L  | 1/8 Step      | 1600                          |
+|  L  |  L  |  H  | 1/16 Step     | 3200                          |
+|  H  |  L  |  H  | 1/32 Step     | 6400                          |
 
 ## Ajuste de corrente de saída
 
