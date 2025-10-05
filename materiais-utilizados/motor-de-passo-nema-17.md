@@ -6,6 +6,8 @@ description: Descrição do motor de passo escolhido
 
 
 
+<figure><img src="../.gitbook/assets/{9B1D881C-3D96-4B81-9A11-798331AD2FAF}.png" alt=""><figcaption></figcaption></figure>
+
 O motor de passo selecionado para o projeto é do tipo NEMA 17, um motor bipolar que opera em uma faixa de tensão entre 12 V e 26 V, realizando 200 passos por rotação completa. Além disso, o modelo é compatível com o driver especificado para o sistema.
 
 ## Gráfico Torque x RPM
