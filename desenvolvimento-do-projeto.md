@@ -6,27 +6,32 @@ description: Descrição das etapas de desenvolvimento do projeto
 
 ## Controle do motor de passo
 
-Para realizar o controle do motor de passo foi utilizado um driver de motor o DRV 8825, conforme documentado na seção [materiais-utilizados](materiais-utilizados/ "mention") o controle foi realizado utilizando o pino step.
+Para o controle do motor de passo, foi utilizado o driver DRV8825. Conforme documentado na seção correspondente, o controle foi implementado por meio do pino STEP, responsável pelo envio dos pulsos de comando ao driver.
 
-Algumas considerações para o motor funcionar:
+Considerações de funcionamento do motor
 
-Alimentação para o motor é de 30volts
+* A alimentação do motor foi configurada para 30 V.
+* Foi adicionado um capacitor de acoplamento com o objetivo de suprimir ruídos elétricos e garantir maior estabilidade no funcionamento do circuito.
+* As conexões das bobinas foram realizadas utilizando os pinos A1, A2, B1 e B2 do driver. O motor utilizado é do tipo bipolar, portanto, uma bobina foi conectada entre os pinos A1–A2, e a outra entre B1–B2.
 
-adicionado um capacitor de aclopamento para suprimir ruídos
+O driver foi configurado para operar no modo half-step, o que significa que o motor, originalmente com um passo de 1,8° (equivalente a 200 passos para uma volta completa em modo full-step), passa a requerer 400 passos para uma rotação de 360° em half-step.
 
-utilizado os pinos, A1 A2 B1 B2 nas saídas das bobinas do motor, o motor é bipolar, portanto uma bobina foi conectada em A1 A2  e outra bobina foi conectada em B1 B2.
+No projeto, foi implementada uma rotação de 90° para realizar o movimento de acesso. Após um intervalo de 5 segundos, o pino DIR foi acionado para inverter o sentido de rotação — de horário para anti-horário — retornando o motor à posição inicial, com o mesmo número de passos (−90°).
 
-O driver foi configurado na função half step, ou seja ele tem o passo de 1,8º é necessário 200 passos em full step para 360º em half step é necessário 400 passos para a volta completa.
+Os pinos M0, M1 e M2 foram utilizados para configurar o modo de operação do driver. Para o modo half-step, foi definida a seguinte configuração:
 
-No projeto foi idealizado uma volta de 90º para realizar o acesso, e após 5 segundos foi utilizado o pino DIR para mudar a direção de horário para anti-horário e voltar o motor para posião inicial com os mesmos passos que foram realizados para girar 90º voltou -90º para posição inicial.
+* M0 = HIGH
+* M1 = LOW
+* M2 = LOW
 
-Os pinos M0, M1, M2 foram utilizados para configurar o driver em half step, para half step M0 foi configurado em HIGH M1 E M2 em LOW.
+Além disso, foram utilizados:
 
-Além disso, também foram utilizados o pino STEP para mandar os pulsos e o pino DIR para setar a direção horário /anti-horario
+* O pino STEP, responsável pelo envio dos pulsos de controle;
+* O pino DIR, responsável pela definição da direção de rotação (horário/anti-horário).
 
 ### Código em C para passos do motor.
 
-Para realizar o controle na beaglebone, foi criado um código em C para controle de 2 GPIOS uma para o pino STEP, outra para o pino DIR. Conforme código abaixo
+Para realizar o controle do motor na BeagleBone, foi desenvolvido um código em linguagem C destinado ao gerenciamento de dois pinos GPIO: um associado ao pino STEP e outro ao pino DIR. O trecho de código correspondente é apresentado a seguir.
 
 {% tabs %}
 {% tab title="C" %}
@@ -196,9 +201,11 @@ void girar_motor_noventa_graus(int fd_step, int fd_dir) {
 
 ## Interface web para controle remoto do motor
 
-Para atender o objetivo do projeto, que é realizar os comandos no motor para gerar um evento na controladora de acesso, foi desenvolvido um web server http e apis para chamar a função de girar motor, essa função irá girar o motor e gerar o evento do dispositivo de controle de acesso, atendendo o objetivo do projeto.
+Com o objetivo de possibilitar o controle remoto do motor e, consequentemente, gerar eventos na controladora de acesso, foi desenvolvida uma interface web baseada em um servidor HTTP.
 
-Segue abaixo o código que foi desenvolido para o webserver http.
+O servidor implementa APIs REST responsáveis por acionar a função de rotação do motor. Ao ser invocada, essa função executa o movimento do motor de passo e, simultaneamente, envia o evento de acionamento ao dispositivo de controle de acesso, atendendo assim ao propósito central do projeto.
+
+A seguir, apresenta-se o código-fonte desenvolvido para o servidor HTTP, responsável por gerenciar as requisições web e realizar a integração com o módulo de controle do motor.
 
 {% tabs %}
 {% tab title="C" %}
