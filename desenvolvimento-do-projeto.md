@@ -6,7 +6,7 @@ description: Descrição das etapas de desenvolvimento do projeto
 
 ## Controle do motor de passo
 
-Para o controle do motor de passo, foi utilizado o driver DRV8825. Conforme documentado na seção correspondente, o controle foi implementado por meio do pino STEP, responsável pelo envio dos pulsos de comando ao driver.
+Para o controle do motor de passo, foi utilizado o driver DRV8825. Conforme documentado na seção [materiais-utilizados](materiais-utilizados/ "mention"), o controle foi implementado por meio do pino STEP, responsável pelo envio dos pulsos de comando ao driver.
 
 Considerações de funcionamento do motor
 
