@@ -6,18 +6,27 @@ description: Descrição das etapas de desenvolvimento do projeto
 
 ## Controle do motor de passo
 
-Para realizar o controle do motor de passo, será necessário utilizar os seguintes componentes:
+Para realizar o controle do motor de passo foi utilizado um driver de motor o DRV 8825, conforme documentado na seção [materiais-utilizados](materiais-utilizados/ "mention") o controle foi realizado utilizando o pino step.
 
-* Um driver de motor compatível com o tipo de motor de passo escolhido;
-* Um motor de passo, responsável pela movimentação precisa;
-* A BeagleBone, que atuará como unidade de controle;
-* Os pinos GPIO da BeagleBone, que serão utilizados para enviar os sinais de comando ao driver.
+Algumas considerações para o motor funcionar:
 
-A BeagleBone será programada para gerar os pulsos e sinais de direção necessários ao funcionamento do motor, por meio dos pinos GPIO previamente definidos.
+Alimentação para o motor é de 30volts
 
-### Código para controle do motor de passo
+adicionado um capacitor de aclopamento para suprimir ruídos
 
-Abaixo está o código utilizado para controle do driver do motor:
+utilizado os pinos, A1 A2 B1 B2 nas saídas das bobinas do motor, o motor é bipolar, portanto uma bobina foi conectada em A1 A2  e outra bobina foi conectada em B1 B2.
+
+O driver foi configurado na função half step, ou seja ele tem o passo de 1,8º é necessário 200 passos em full step para 360º em half step é necessário 400 passos para a volta completa.
+
+No projeto foi idealizado uma volta de 90º para realizar o acesso, e após 5 segundos foi utilizado o pino DIR para mudar a direção de horário para anti-horário e voltar o motor para posião inicial com os mesmos passos que foram realizados para girar 90º voltou -90º para posição inicial.
+
+Os pinos M0, M1, M2 foram utilizados para configurar o driver em half step, para half step M0 foi configurado em HIGH M1 E M2 em LOW.
+
+Além disso, também foram utilizados o pino STEP para mandar os pulsos e o pino DIR para setar a direção horário /anti-horario
+
+### Código em C para passos do motor.
+
+Para realizar o controle na beaglebone, foi criado um código em C para controle de 2 GPIOS uma para o pino STEP, outra para o pino DIR. Conforme código abaixo
 
 {% tabs %}
 {% tab title="C" %}
@@ -30,27 +39,17 @@ Abaixo está o código utilizado para controle do driver do motor:
 #include <unistd.h>         // chamadas POSIX (read, write, close, usleep)
 #include <fcntl.h>          // flags e funções de file control, (open, O_WRONLY)
 #include <errno.h>          // errno e códigos de erro (EINTR,  etc)
-#include <signal.h>         //manipulação de sinais (signal, signaction, SIGINT)
 #include <time.h>           //estruturas e funções de tempo (time_t, nanosleep)
 
-#include <sys/types.h>      //tipos básicos de sistema (pid_t, ssize_t, etc)
-#include <sys/socket.h>     // api de sockets (socket, bind, listen, accept, etc)
-#include <netinet/in.h>     // estruturas para endereço ipv4(strutc addr_in, etc)
-#include <arpa/inet.h>      // conversões de endereço (inet,ntoa, inet_pton)
 
 #define GPIO_60 "60"    // STEP
 #define GPIO_112 "112"  // DIR
 
-#define VOLTA_COMPLETA 200  // define volta completa no modo full step , M0 ,M1, M2 = LOW
-#define QUARTO_VOLTA 50   // passos necessário para giro 90º
-#define DEFAULT_PORT 8081 // porta default para o servidor HTTP
-#define BACKLOG 8           // tamanho da fila de conexões pendentes para listen()
-#define RECV_BUF 8192       // tamanho do buffer utilizado para requisições http com recv 8192 bytes (8kb) suficiente para requisições simples (header + body)
+#define VOLTA_COMPLETA 400  // define volta completa no modo Half step , M0 = HIGH; M1, M2 = LOW
+#define QUARTO_VOLTA 100   // passos necessário para giro 90º
 
 static int fd_gpio60 = -1;  //inicializa gpio60 com -1, indica que ainda não foi aberto
 static int fd_gpio112 = -1; //inicializa gpio112 com -1, indica que ainda não foi aberto
-static int listen_fd = -1; //descritor do socket de escuta, inicializar com -1 significa que ainda não foi aberto.
-
 /* ---------- utilitário de escrita robusta ----------
 escreve todos os count no arquivo
 retorna número de bytes lidos   
@@ -159,6 +158,79 @@ int gpio_write(int fd, const char *val) {
     fsync(fd);      //forçar sincronização do descritor com o kernel 
     return 0;
 }
+
+/* ---------- Executa a rotina física para girar o motor 90° (sentido horário)
+e depois retorna à posição inicial (retorno anti-horário). 
+É uma função bloqueante que gera os pulsos STEP e seta o pino DIR adequadamente. ---------- */
+void girar_motor_noventa_graus(int fd_step, int fd_dir) {
+    if (fd_step < 0 || fd_dir < 0) {        // valida se fd_step e fd_dir são válidos
+        fprintf(stderr, "Descriptors inválidos no girar_motor_noventa_graus\n");
+        return;
+    }
+
+    // Direção horário
+    gpio_write(fd_dir, "1");
+    printf("[motor] Girando no sentido horário...\n");
+    for (int i = 0; i < QUARTO_VOLTA; i++) {
+        gpio_write(fd_step, "1");
+        usleep(1000); // 1ms por pulso — ajuste conforme necessidade
+        gpio_write(fd_step, "0");
+        usleep(1000);
+    }
+
+    printf("[motor] Pausa 2s\n");
+    sleep(2);
+
+    // Retorno anti-horário
+    gpio_write(fd_dir, "0");
+    printf("[motor] Retornando no sentido anti-horário...\n");
+    for (int i = 0; i < QUARTO_VOLTA; i++) {
+        gpio_write(fd_step, "1");
+        usleep(1000);
+        gpio_write(fd_step, "0");
+        usleep(1000);
+
+```
+{% endtab %}
+{% endtabs %}
+
+## Interface web para controle remoto do motor
+
+Para atender o objetivo do projeto, que é realizar os comandos no motor para gerar um evento na controladora de acesso, foi desenvolvido um web server http e apis para chamar a função de girar motor, essa função irá girar o motor e gerar o evento do dispositivo de controle de acesso, atendendo o objetivo do projeto.
+
+Segue abaixo o código que foi desenvolido para o webserver http.
+
+{% tabs %}
+{% tab title="C" %}
+```javascript
+#define _XOPEN_SOURCE 500   // Habilita extensões POSIX/XSI e define comportamento de headers da biblioteca C.
+                            // O valor 500 refere-se ao X/Open 5 / POSIX.1c (aprox. POSIX.1-1995)
+#include <stdio.h>          // I/O padrão(printf, sprintf, perror, snprintf)
+#include <stdlib.h>         // utilitários padrão (malloc, free, atoi/strtol, exit, system)
+#include <string.h>         // operações em string
+#include <unistd.h>         // chamadas POSIX (read, write, close, usleep)
+#include <fcntl.h>          // flags e funções de file control, (open, O_WRONLY)
+#include <errno.h>          // errno e códigos de erro (EINTR,  etc)
+#include <signal.h>         //manipulação de sinais (signal, signaction, SIGINT)
+#include <time.h>           //estruturas e funções de tempo (time_t, nanosleep)
+
+#include <sys/types.h>      //tipos básicos de sistema (pid_t, ssize_t, etc)
+#include <sys/socket.h>     // api de sockets (socket, bind, listen, accept, etc)
+#include <netinet/in.h>     // estruturas para endereço ipv4(strutc addr_in, etc)
+#include <arpa/inet.h>      // conversões de endereço (inet,ntoa, inet_pton)
+
+#define GPIO_60 "60"    // STEP
+#define GPIO_112 "112"  // DIR
+
+#define VOLTA_COMPLETA 400  // define volta completa no modo full step , M0 ,M1, M2 = LOW
+#define QUARTO_VOLTA 100   // passos necessário para giro 90º
+#define DEFAULT_PORT 8081 // porta default para o servidor HTTP
+#define BACKLOG 8           // tamanho da fila de conexões pendentes para listen()
+#define RECV_BUF 8192       // tamanho do buffer utilizado para requisições http com recv 8192 bytes (8kb) suficiente para requisições simples (header + body)
+
+static int fd_gpio60 = -1;  //inicializa gpio60 com -1, indica que ainda não foi aberto
+static int fd_gpio112 = -1; //inicializa gpio112 com -1, indica que ainda não foi aberto
+static int listen_fd = -1; //descritor do socket de escuta, inicializar com -1 significa que ainda não foi aberto.
 
 /* ---------- Executa a rotina física para girar o motor 90° (sentido horário)
 e depois retorna à posição inicial (retorno anti-horário). 
