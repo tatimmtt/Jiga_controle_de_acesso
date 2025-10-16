@@ -26,12 +26,10 @@ A arquitetura proposta para o projeto utiliza um microcomputador embarcado Beagl
 
 Para este projeto, serão utilizados os seguintes pinos GPIO:
 
-* **4 pinos GPIO** dedicados ao driver de motor de passo
-  * GPIO\_30
-  * GPIO\_31
-  * GPIO\_48
-  * GPIO\_51
+* **2 pinos GPIO** dedicados ao driver de motor de passo
+  * GPIO\_60 --> pino STEP do driver
+  * GPIO\_112 --> pino DIR do driver
 * **1 pino GPIO** destinado ao controle da ventoinha
-  * GPIO\_60
+  * GPIO\_115
 
 Além do controle via GPIO, a BeagleBone também será responsável por hospedar um servidor web para acesso remoto e realizar comandos no motor. Esse servidor será disponibilizado em um endereço IP privado (IP x), acessível apenas por meio de conexão à VPN da rede. Dessa forma, o desenvolvedor poderá operar remotamente o sistema com segurança, sem expor o serviço a acessos externos não autorizados.
