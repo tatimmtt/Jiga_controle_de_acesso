@@ -34,7 +34,18 @@ A primeira é disponibilizar uma interface web para o trabalhador remoto consegu
 
 A segunda é disponibilizar uma função na interface web para gerar 20.000.000 de eventos de forma ininterrupta identificar quantos eventos foram gerados e parar.
 
-### Arquitetura de conexão
+### Diagrama de rede
+
+O ambiente de rede proposto será estruturado conforme os seguintes critérios:
+
+* O Servidor P001, a BeagleBone e o dispositivo de controle de acesso permanecerão conectados a um mesmo switch, compondo uma rede LAN dedicada.
+* O switch terá conexão direta com o roteador, viabilizando o tráfego interno e externo conforme as regras estabelecidas.
+* Será implementada uma política de segurança no firewall visando bloquear solicitações provenientes de endereços IP não autorizados. Somente conexões previamente reconhecidas terão permissão para acessar os serviços disponibilizados na rede interna.
+* Uma conexão VPN (Virtual Private Network) será estabelecida entre o ambiente do cliente e a infraestrutura local, garantindo um túnel seguro para o envio de comandos ao servidor HTTP operante na BeagleBone.
+
+O diagrama de rede correspondente encontra-se apresentado a seguir:
+
+<figure><img src=".gitbook/assets/{7307538C-6163-4FD2-A72B-051A71CCD242}.png" alt="" width="563"><figcaption></figcaption></figure>
 
 
 
