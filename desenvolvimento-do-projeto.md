@@ -62,6 +62,18 @@ O esquema a seguir apresenta o detalhamento das conexões físicas entre a Beagl
 
 <figure><img src=".gitbook/assets/Screenshot_6 (1).png" alt=""><figcaption></figcaption></figure>
 
+## Projeto em 3D
+
+Nesta seção é apresentada a modelagem tridimensional desenvolvida no Tinkercad, com o objetivo de representar a disposição física dos principais componentes na Jiga. Foi elaborado um esquema visual contemplando o driver de motor, a BeagleBone, o motor de passo, o dispositivo de controle de acesso e o cartão de acesso, permitindo avaliar o posicionamento e a organização estrutural do conjunto.
+
+Vale destacar que o Servidor P001 não foi incluído na representação, uma vez que encontra-se hospedado no datacenter.
+
+<figure><img src=".gitbook/assets/{C55C5F74-3164-41FF-977F-C302955E2804}.png" alt="" width="187"><figcaption></figcaption></figure>
+
+Face 2:
+
+<figure><img src=".gitbook/assets/{CA595B67-F1F0-4EF6-820E-D1ED9A372DA5}.png" alt="" width="243"><figcaption></figcaption></figure>
+
 ## Implementação
 
 Nessa seção serão descritas as etapas de implementação do projeto e o que cada etapa resolve do problema.
