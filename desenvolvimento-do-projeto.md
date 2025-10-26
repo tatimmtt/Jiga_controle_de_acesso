@@ -51,6 +51,17 @@ O diagrama de rede correspondente encontra-se apresentado a seguir:
 
 ***
 
+### Diagrama de conexões físicas
+
+A arquitetura física do sistema será segmentada em dois níveis principais:
+
+* **Conexões em nível micro**: integração entre a BeagleBone, o driver de motor DRV8825 e o motor de passo NEMA17, responsável pela operação eletromecânica.
+* **Conexões em nível macro**: interligação entre o Servidor P001, o dispositivo de controle de acesso e a BeagleBone, compondo a infraestrutura de comunicação do projeto.
+
+O esquema a seguir apresenta o detalhamento das conexões físicas entre a BeagleBone, o driver DRV8825 e o motor de passo NEMA17.
+
+<figure><img src=".gitbook/assets/Screenshot_6 (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Implementação
 
 Nessa seção serão descritas as etapas de implementação do projeto e o que cada etapa resolve do problema.
