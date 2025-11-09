@@ -60,7 +60,7 @@ A arquitetura física do sistema será segmentada em dois níveis principais:
 
 O esquema a seguir apresenta o detalhamento das conexões físicas entre a BeagleBone, o driver DRV8825 e o motor de passo NEMA17.
 
-<figure><img src=".gitbook/assets/Screenshot_6 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Untitled Sketch 2_Esquemático.png" alt=""><figcaption></figcaption></figure>
 
 ## Projeto em 3D
 
