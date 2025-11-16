@@ -11,3 +11,4 @@
   * [Planejamento da ação](desenvolvimento-do-projeto/planejamento-da-acao.md)
   * [Implementação](desenvolvimento-do-projeto/implementacao.md)
   * [Sensor de temperatura](desenvolvimento-do-projeto/sensor-de-temperatura.md)
+* [Documentação do código](documentacao-do-codigo.md)
