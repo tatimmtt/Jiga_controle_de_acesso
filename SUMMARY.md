@@ -12,6 +12,7 @@
   * [Implementação](desenvolvimento-do-projeto/implementacao.md)
   * [Sensor de temperatura](desenvolvimento-do-projeto/sensor-de-temperatura.md)
 * [Documentação do código](documentacao-do-codigo/README.md)
+  * [README](documentacao-do-codigo/readme.md)
   * [gpio.c](documentacao-do-codigo/gpio.c.md)
   * [gpio.h](documentacao-do-codigo/gpio.h.md)
   * [http\_server.c](documentacao-do-codigo/http_server.c.md)
@@ -21,4 +22,3 @@
   * [motor.h](documentacao-do-codigo/motor.h.md)
   * [web\_content.c](documentacao-do-codigo/web_content.c.md)
   * [web\_content.h](documentacao-do-codigo/web_content.h.md)
-  * [README](documentacao-do-codigo/readme.md)
