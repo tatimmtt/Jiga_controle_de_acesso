@@ -45,7 +45,7 @@ O ambiente de rede proposto será estruturado conforme os seguintes critérios:
 
 O diagrama de rede correspondente encontra-se apresentado a seguir:
 
-<figure><img src=".gitbook/assets/{7307538C-6163-4FD2-A72B-051A71CCD242}.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/{7307538C-6163-4FD2-A72B-051A71CCD242}.png" alt="" width="563"><figcaption></figcaption></figure>
 
 
 
@@ -60,7 +60,7 @@ A arquitetura física do sistema será segmentada em dois níveis principais:
 
 O esquema a seguir apresenta o detalhamento das conexões físicas entre a BeagleBone, o driver DRV8825 e o motor de passo NEMA17.
 
-<figure><img src=".gitbook/assets/Untitled Sketch 3_Esquemático.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled Sketch 3_Esquemático.png" alt=""><figcaption></figcaption></figure>
 
 ## Projeto em 3D
 
@@ -68,11 +68,11 @@ Nesta seção é apresentada a modelagem tridimensional desenvolvida no Tinkerca
 
 Vale destacar que o Servidor P001 não foi incluído na representação, uma vez que encontra-se hospedado no datacenter.
 
-<figure><img src=".gitbook/assets/{C55C5F74-3164-41FF-977F-C302955E2804}.png" alt="" width="187"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/{C55C5F74-3164-41FF-977F-C302955E2804}.png" alt="" width="187"><figcaption></figcaption></figure>
 
 Face 2:
 
-<figure><img src=".gitbook/assets/{CA595B67-F1F0-4EF6-820E-D1ED9A372DA5}.png" alt="" width="243"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/{CA595B67-F1F0-4EF6-820E-D1ED9A372DA5}.png" alt="" width="243"><figcaption></figcaption></figure>
 
 ## Implementação
 
@@ -80,11 +80,11 @@ Nessa seção serão descritas as etapas de implementação do projeto e o que c
 
 ### Controle do motor de passo
 
-Para o controle do motor de passo, foi utilizado o driver DRV8825. Conforme documentado na seção [materiais-utilizados](materiais-utilizados/ "mention"), o controle foi implementado por meio do pino STEP, responsável pelo envio dos pulsos de comando ao driver.
+Para o controle do motor de passo, foi utilizado o driver DRV8825. Conforme documentado na seção [materiais-utilizados](../materiais-utilizados/ "mention"), o controle foi implementado por meio do pino STEP, responsável pelo envio dos pulsos de comando ao driver.
 
 Considerações de funcionamento do motor
 
-* A alimentação do motor foi configurada para 30 V.
+* A alimentação do motor foi configurada para 24 V.
 * Foi adicionado um capacitor de acoplamento com o objetivo de suprimir ruídos elétricos e garantir maior estabilidade no funcionamento do circuito.
 * As conexões das bobinas foram realizadas utilizando os pinos A1, A2, B1 e B2 do driver. O motor utilizado é do tipo bipolar, portanto, uma bobina foi conectada entre os pinos A1–A2, e a outra entre B1–B2.
 
@@ -106,6 +106,8 @@ Além disso, foram utilizados:
 ### Código em C para passos do motor.
 
 Para realizar o controle do motor na BeagleBone, foi desenvolvido um código em linguagem C destinado ao gerenciamento de dois pinos GPIO: um associado ao pino STEP e outro ao pino DIR. O trecho de código correspondente é apresentado a seguir.
+
+
 
 {% tabs %}
 {% tab title="C" %}

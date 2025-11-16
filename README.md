@@ -69,4 +69,4 @@ Este trabalho utiliza a metodologia de Pesquisa-Ação, por ser adequada à inve
 
 <p align="center"><a href="materiais-utilizados/" class="button secondary" data-icon="microchip">  Materiais Utilizados  </a></p>
 
-<p align="center"><a href="desenvolvimento-do-projeto.md" class="button secondary" data-icon="uncharted">Desenvolvimento do projeto</a></p>
+<p align="center"><a href="desenvolvimento-do-projeto/" class="button secondary" data-icon="uncharted">Desenvolvimento do projeto</a></p>
