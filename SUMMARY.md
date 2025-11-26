@@ -22,3 +22,4 @@
   * [motor.h](documentacao-do-codigo/motor.h.md)
   * [web\_content.c](documentacao-do-codigo/web_content.c.md)
   * [web\_content.h](documentacao-do-codigo/web_content.h.md)
+  * [temperature\_sensor.c](documentacao-do-codigo/temperature_sensor.c.md)
