@@ -94,6 +94,8 @@ Proteções:
 
 ### Descrição das responsabilidades por módulo
 
+<figure><img src="../.gitbook/assets/{8E131DC8-8B6E-4497-BB84-EA51678346E3}.png" alt=""><figcaption></figcaption></figure>
+
 #### main.c
 
 **Responsabilidades:**
@@ -117,8 +119,6 @@ Proteções:
 
 {% step %}
 ### Loop principal
-
-
 
 * Espera conexões de clientes(accept de conexões http)
 * Quando o cliente conecta passa para o http\_server.c
@@ -240,8 +240,6 @@ Dentro da thread existe outro fluxo:
 
 * Liga DIR= 0 (sentido anti-horário)
 * Faz 100 pulsos novamente
-
-
 {% endstep %}
 
 {% step %}
@@ -416,9 +414,29 @@ SERVIDOR responde: HTTP/1.1 200 OK
 3. Responde: "200 OK, solicitada parada"
 ```
 
+#### temperature\_sensor.c
 
 
 
+### temperature\_sensor.c
+
+Camada de Negócio - Infraestrutura de Sensoriamento)
+
+#### Responsabilidades:
+
+✅ Gerenciar comunicação I2C com sensor\
+✅ Ler temperatura periodicamente\
+✅ Validar dados recebidos do sensor\
+✅ Executar leitura em thread separada\
+✅ Proteger acesso com mutex (thread-safe)\
+✅ Notificar via callback quando temperatura muda\
+❌ NÃO sabe de HTTP ou interface web\
+❌ NÃO controla o motor diretamente\
+❌ NÃO mexe em GPIO (usa I2C nativo do Linux)
+
+**Estrutura de dados:**
+
+<figure><img src="../.gitbook/assets/{9DE97DB8-72CE-471B-AD89-968D8C4A3655}.png" alt=""><figcaption></figcaption></figure>
 
 #### web\_content.c
 
