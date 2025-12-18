@@ -8,6 +8,7 @@
   * [Motor de passo (NEMA 17)](materiais-utilizados/motor-de-passo-nema-17.md)
   * [Sensor de temperatura GY-906](materiais-utilizados/sensor-de-temperatura-gy-906.md)
 * [Desenvolvimento do projeto](desenvolvimento-do-projeto/README.md)
+  * [Desenvolvimento da placa](desenvolvimento-do-projeto/desenvolvimento-da-placa.md)
   * [Diagnóstico do problema](desenvolvimento-do-projeto/diagnostico-do-problema.md)
   * [Planejamento da ação](desenvolvimento-do-projeto/planejamento-da-acao.md)
   * [Implementação](desenvolvimento-do-projeto/implementacao.md)
