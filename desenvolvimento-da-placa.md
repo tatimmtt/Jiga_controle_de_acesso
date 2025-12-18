@@ -29,4 +29,6 @@ A manufatura da placa foi executada por meio de processo caseiro de transferênc
 * Perfuração: furos mecânicos realizados com broca de precisão para terminais e fixações.
 * Soldagem: soldagem manual com estanho, verificando-se qualidade das junções e possíveis pontes.
 
-<div><figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (3).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (1).jpeg" alt=""><figcaption></figcaption></figure></div>
+<figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (3).jpeg" alt=""><figcaption></figcaption></figure>
+
+<div><figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.49.23 (2).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.49.23 (1).jpeg" alt=""><figcaption></figcaption></figure></div>
