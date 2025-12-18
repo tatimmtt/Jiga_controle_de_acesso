@@ -4,11 +4,11 @@ Para a entrega final, foi desenvolvido o layout da placa de circuito impresso (P
 
 ### Esquemático
 
-O esquemático foi confeccionado no KiCad e contempla todos os componentes e conexões descritos na documentação prévia [arquitetura-do-projeto.md](../arquitetura-do-projeto.md "mention"). Os símbolos e footprints foram verificados quanto à compatibilidade mecânica e elétrica, adotando nomenclatura clara e referências de pinos padronizadas para facilitar revisão e manutenção
+O esquemático foi confeccionado no KiCad e contempla todos os componentes e conexões descritos na documentação prévia [arquitetura-do-projeto.md](arquitetura-do-projeto.md "mention"). Os símbolos e footprints foram verificados quanto à compatibilidade mecânica e elétrica, adotando nomenclatura clara e referências de pinos padronizadas para facilitar revisão e manutenção
 
 &#x20;&#x20;
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Layout da placa
 
@@ -18,7 +18,7 @@ O esquemático foi confeccionado no KiCad e contempla todos os componentes e con
 * Dimensionamento de trilhas conforme corrente prevista e regras de manufatura (larguras de trilha padronizadas em 1.2mm).
 * Posicionamento de componentes para facilitar a montagem, testes e a dissipação térmica.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Fabricação da placa
 
@@ -29,4 +29,4 @@ A manufatura da placa foi executada por meio de processo caseiro de transferênc
 * Perfuração: furos mecânicos realizados com broca de precisão para terminais e fixações.
 * Soldagem: soldagem manual com estanho, verificando-se qualidade das junções e possíveis pontes.
 
-<div><figure><img src="../.gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (3).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (1).jpeg" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (3).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-12-18 at 17.12.10 (1).jpeg" alt=""><figcaption></figcaption></figure></div>
