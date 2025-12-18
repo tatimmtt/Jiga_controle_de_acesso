@@ -22,7 +22,7 @@ O motor NEMA 17 tem uma faixa de operação de temperatura de -20ºC até 40ºC
 
 Dessa forma, o escopo do projeto foi atualizado para incluir:
 
-* Instalação de um sensor de temperatura no motor modelo DSB1820, responsável por monitorar a temperatura durante o funcionamento.
+* Instalação de um sensor de temperatura no motor modelo GY-906, responsável por monitorar a temperatura durante o funcionamento.
 * Caso o sensor detecte temperatura superior a 30 °C, o sistema deve interromper o funcionamento do motor e enviar um aviso automático ao usuário.
 * Implementação de um menu na interface web para exibir, em tempo real, a temperatura do motor.
 
