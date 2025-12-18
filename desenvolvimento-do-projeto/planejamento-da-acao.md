@@ -29,14 +29,14 @@ O diagrama de rede correspondente encontra-se apresentado a seguir:
 
 A arquitetura física do sistema será segmentada em dois níveis principais:
 
-* **Conexões em nível micro**: integração entre a BeagleBone, o driver de motor DRV8825 e o motor de passo NEMA17, responsável pela operação eletromecânica.
+* **Conexões em nível micro**: integração entre a BeagleBone, o sensor de temperatura GY-906, o driver de motor DRV8825, motor de passo NEMA17, responsável pela operação eletromecânica.
 * **Conexões em nível macro**: interligação entre o Servidor P001, o dispositivo de controle de acesso e a BeagleBone, compondo a infraestrutura de comunicação do projeto.
 
-O esquema a seguir apresenta o detalhamento das conexões físicas entre a BeagleBone, o driver DRV8825 e o motor de passo NEMA17.
+O esquema a seguir apresenta o detalhamento das conexões físicas entre a BeagleBone, o sensor de temperatur GY-906, o driver DRV8825 e o motor de passo NEMA17.
 
-<figure><img src="../.gitbook/assets/Untitled Sketch 3_Esquemático.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/{A67FFC65-277B-4539-AFF6-A36524A6FE60}.png" alt=""><figcaption></figcaption></figure>
 
-## Projeto em 3D
+## Projeto em 3D da Jiga
 
 Nesta seção é apresentada a modelagem tridimensional desenvolvida no Tinkercad, com o objetivo de representar a disposição física dos principais componentes na Jiga. Foi elaborado um esquema visual contemplando o driver de motor, a BeagleBone, o motor de passo, o dispositivo de controle de acesso e o cartão de acesso, permitindo avaliar o posicionamento e a organização estrutural do conjunto.
 
