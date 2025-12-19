@@ -1,5 +1,7 @@
 # Resultados e conclusão
 
+{% embed url="https://youtu.be/eTeEcGdhhUw" %}
+
 O objetivo principal do projeto — viabilizar, de forma remota, a geração de eventos para usuários sem acesso físico ao dispositivo — foi plenamente alcançado. A solução implementada permite ao desenvolvedor validar funcionalidades do código que dependem de leituras por cartão, assegurando a realização de testes remotos de forma reprodutível, controlada e organizada.
 
 O objetivo secundário, que consistia em popular a base de dados com um grande volume de eventos para testar sua capacidade máxima (meta de 20 milhões de registros), não foi integralmente atingido nas condições atuais. Observou-se que o motor de geração contínua opera a uma taxa aproximada de 1 acesso a cada 2 segundos.
